@@ -18,6 +18,7 @@ define([
         constructor: function(args) {
             //TODO: args should have the initial state of hte board in an array when instantiating
 
+
             this.sudokuCellArrays = [];
             this.numberCells = 4;
             for (var i = 1; i <= this.numberCells; i++) {
