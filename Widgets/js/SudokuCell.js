@@ -19,7 +19,7 @@ define([
             if (!this.cellValue) {
                 this.canSetCellValue = false;
                 //add a class saying unmodifiable
-	            domClass.add(this.domNode, "disabledSudokuCell");
+	            //domClass.add(this.domNode, "disabledSudokuCell");
             }
 
             //Display number in svg

@@ -7,7 +7,7 @@ define([
     "dijit/_WidgetBase",
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin",
-    "SudokuCell",
+    "Sudoku/Widgets/js/SudokuCell",
     "dojo/text!../templates/SudokuBoard.html"
 ], function(declare, query, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, SudokuCell, template) {
 
@@ -15,30 +15,32 @@ define([
         widgetsInTemplate: true,
         templateString: template,
 
-        constructor: function(args) {
+        constructor: function() {
             //TODO: args should have the initial state of hte board in an array when instantiating
 
 
             this.sudokuCellArrays = [];
             this.numberCells = 4;
             for (var i = 1; i <= this.numberCells; i++) {
-                var cell = new SudokuCell({'cellNumber': i});
-                this.sudokuCellArrays.push(cell);
+            	this.sudokuCellArrays.push(new SudokuCell({'cellNumber':i, 'cellValue': 1}));
             }
+
         },
 
-        postCreate: function() {
+	    postCreate: function() {
             var widget = this;
             console.log(this.sudokuCellArrays.length);
             for (var i = 0; i < this.sudokuCellArrays.length; i++) {
                 var cell = this.sudokuCellArrays[i];
                 cell.placeAt(widget.sudokuBoardContainer, "last");
             }
-        },
-
-	    _addEventListener: function() {
-
-	    }
+	    },
+	    //
+	    // _addEventListener: function() {
+		 //    query(".sudokuCell not:(.disabledSudokuCell)").on("click", function() {
+		 //    	console.log("here");
+		 //    });
+	    // }
 
     });
 });
