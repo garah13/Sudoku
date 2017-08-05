@@ -1,4 +1,16 @@
 .cellRectangle {
     fill: grey;
     margin: 0;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.cellRectangle:hover {
+    fill: lightgrey;
+}
+
+.sudokuCell g text {
+    fill: white;
+    font-size: 30px;
+
 }

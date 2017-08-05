@@ -24,7 +24,7 @@ define([
             let cell;
         	for (let i = 0; i < this.numberCells; i++) {
 				cell = new SudokuCell({
-					cellNumber: i,
+					cellPosition: i,
 					cellValue: 0
 				});
 				this.sudokuCells.push(cell);

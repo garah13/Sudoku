@@ -3,52 +3,39 @@ define([
     "dojo/on",
     "dojo/mouse",
     "dojo/dom-class",
+    "dojo/dom-attr",
     "dojo/dom-style",
     "dijit/_WidgetBase",
     "dijit/_TemplatedMixin",
     "dojo/text!../templates/SudokuCell.html"
-  ], function(declare, on, mouse, domClass, domStyle, _WidgetBase, _TemplatedMixin, template) {
+  ], function(declare, on, mouse, domClass, domAttr, domStyle, _WidgetBase, _TemplatedMixin, template) {
 
     return declare([_WidgetBase, _TemplatedMixin], {
         templateString: template,
 
         constructor: function(args) {
-            this.cellNumber = args.cellNumber;
+            this.cellPosition = args.cellPosition;
             this.cellValue = args.cellValue;
             this.canSetCellValue = true;
-            if (!this.cellValue) {
-                this.canSetCellValue = false;
-                //add a class saying unmodifiable
-	            //domClass.add(this.domNode, "disabledSudokuCell");
-            }
-
-            //Display number in svg
         },
 
         postCreate: function() {
-            if (this.canSetCellValue) {
-	            this._addEventListeners();
-            }
+            this._addEventListeners();
+
         },
 
         _addEventListeners: function() {
             var widget = this;
+            // domAttr.set(this.cellText, "textContent", this.cellValue);
 
-            on(this.sudokuCell, mouse.enter, function() {
-               domStyle.set(widget.sudokuRectangle, "fill", "red");
-            });
-
-	        on(this.sudokuCell, mouse.leave, function() {
-		        domStyle.set(widget.sudokuRectangle, "fill", "black");
-	        });
         },
 
         getCellValue: function() {
             return this.cellValue;
         },
 
-        getCellNumber: function() {
-            return this.cellNumber;
+        getCellPosition: function() {
+            return this.cellPosition;
         },
 
         setCellValue: function(value) {

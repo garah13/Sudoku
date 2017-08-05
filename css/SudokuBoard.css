@@ -6,6 +6,7 @@ div.sudokuBoardContainer {
     padding: 5px;
     display: inline-block;
     background: black;
+    border-radius: 5px;
 }
 
 .sudokuBoard tr:nth-of-type(3) td, .sudokuBoard tr:nth-of-type(6) td {
