@@ -1,0 +1,17 @@
+table.sudokuBoard {
+    border-collapse: collapse;
+}
+
+div.sudokuBoardContainer {
+    padding: 5px;
+    display: inline-block;
+    background: black;
+}
+
+.sudokuBoard tr:nth-of-type(3) td, .sudokuBoard tr:nth-of-type(6) td {
+    padding-bottom: 5px;
+}
+
+.boardRow td:nth-of-type(3), .boardRow td:nth-of-type(6) {
+    padding-right: 5px;
+}

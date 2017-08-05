@@ -1,6 +1,0 @@
-.sudokuCellWrapper {
-    display: grid;
-    grid-template-columns: repeat(3);
-    grid-gap: 0%;
-
-}
